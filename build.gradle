@@ -14,7 +14,7 @@ dependencies {
   	implementation group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.1.1.RELEASE'
   	//httpServlet
   	implementation group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
-  	//https
+  	//ssh
   	implementation group: 'ch.ethz.ganymed', name: 'ganymed-ssh2', version: 'build210'
   	//qrcode
   	implementation group: 'com.google.zxing', name: 'core', version: '3.0.0'

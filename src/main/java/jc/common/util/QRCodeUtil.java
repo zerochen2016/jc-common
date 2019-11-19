@@ -11,8 +11,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.Hashtable;
-import java.util.Map;
-import java.util.TreeMap;
 
 import javax.imageio.ImageIO;
 
@@ -114,16 +112,16 @@ public class QRCodeUtil {
     }
   
     /** 
-     * @Remark 生成二维码(内嵌LOGO) 
-     * @param content 内容 url
-     * @param imgPath LOGO地址 可为空 
-     * @param file 图片文件,如:d:\\ddd.jpg
+     * @Remark generate qrcode 
+     * @param url: http://www.baidu.com
+     * @param logo: http://.... 
+     * @param file:d:\\ddd.jpg
      * @param needCompress 是否压缩LOGO 
      * @throws Exception 
      */  
-    public static void encode(String content, String imgPath, File file,  
+    public static void encode(String url, String logo, File file,  
             boolean needCompress) throws Exception {  
-        BufferedImage image = QRCodeUtil.createImage(content, imgPath,  
+        BufferedImage image = QRCodeUtil.createImage(url, logo,  
                 needCompress);  
         ImageIO.write(image, FORMAT_NAME, file);  
     }
@@ -145,19 +143,5 @@ public class QRCodeUtil {
 	    	e.printStackTrace();
 	    }
 	    return out.toByteArray();
-    }
-    
-    
-    public static void main(String args[]) throws Exception {
-    	Map<String,String> QRCODE_URL = new TreeMap<>();
-		QRCODE_URL.put("28p99", "http://nxt.nongxinyin.com/buybal-api/v1.0/cashier/initializ/9BD66948EDE4AFA7038F647350BEB80D");
-		for(Map.Entry<String, String> map:QRCODE_URL.entrySet()) {
-	    	String filename = map.getKey().toString().replace(".", "p") + ".jpg";
-			
-	    	File file = new File("/Users/zero/Desktop/"+filename);
-	    	file.createNewFile();
-	    	String url = map.getValue();
-	    	QRCodeUtil.encode(url, "", file, true);			
-		}
     }
 }  

@@ -8,8 +8,6 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * util of date and time
@@ -18,8 +16,6 @@ import org.slf4j.LoggerFactory;
  * @since 1.0.0
  */
 public class DateUtil {
-	
-	private static final Logger LOGGER = LoggerFactory.getLogger(DateUtil.class);
 	
 	/**
 	 * 时间戳
@@ -313,7 +309,7 @@ public class DateUtil {
 			Date date = sd.parse(dateStr);
 			return date;
 		} catch (ParseException e) {
-			LOGGER.info("get Date date error");
+			e.printStackTrace();
 		}
 		return null;
 	}
@@ -482,7 +478,7 @@ public class DateUtil {
 		try {
 			c.setTime(df.parse(dateTime));
 		} catch (ParseException e) {
-			LOGGER.info("DateTime add minutes error");
+			e.printStackTrace();
 		}
 		c.add(Calendar.MINUTE, minutes);
 		return df.format(c.getTime());

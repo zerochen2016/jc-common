@@ -1,6 +1,5 @@
 package jc.common.util;
 
-import org.springframework.util.StringUtils;
 
 /**
  * util of emoji
@@ -64,7 +63,7 @@ public class EmojiUtil {
      * @return
      */
     public static String filterEmoji(String source) {
-        if(StringUtils.isEmpty(source)) {
+        if(StringUtil.isEmpty(source)) {
         	return source;
         }
         StringBuilder buf = null;

@@ -3,16 +3,18 @@ package jc.common.util;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.util.StringUtils;
-
 /**
  * Util Class of String
  * @author JC
  * @Date 2019年11月17日
  * @since 1.0.0
  */
-public class StringUtil extends StringUtils{
+public class StringUtil{
 
+	public static boolean isEmpty(String str) {
+		return (str == null || "".equals(str));
+	}
+	
 	public static boolean anyEmpty(String ...args) {
 		for(String arg : args) {
 			if(isEmpty(arg)) {

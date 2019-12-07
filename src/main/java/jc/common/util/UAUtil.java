@@ -2,8 +2,6 @@ package jc.common.util;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.util.StringUtils;
-
 /**
  * Util Class of UserAgent
  * @author JC
@@ -13,7 +11,7 @@ import org.springframework.util.StringUtils;
 public class UAUtil {
 
 	public static String getUA(HttpServletRequest request) {
-		return StringUtils.isEmpty(request.getHeader("user-agent")) ? "noua" : request.getHeader("user-agent");
+		return StringUtil.isEmpty(request.getHeader("user-agent")) ? "noua" : request.getHeader("user-agent");
 	}
 	
 	public static boolean isWechat(HttpServletRequest request) {

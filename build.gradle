@@ -11,7 +11,6 @@ repositories {
 }
 
 dependencies {
-  	implementation group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.1.1.RELEASE'
   	//httpServlet
   	implementation group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
   	//ssh
@@ -30,7 +29,6 @@ dependencies {
     implementation group: 'commons-httpclient', name: 'commons-httpclient', version: '3.1'
     //http
     implementation group: 'org.apache.httpcomponents', name: 'httpmime', version: '4.5.2'  
-  	compile 'com.google.guava:guava:18.0'
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {

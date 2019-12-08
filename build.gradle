@@ -29,8 +29,6 @@ dependencies {
     implementation group: 'commons-httpclient', name: 'commons-httpclient', version: '3.1'
     //http
     implementation group: 'org.apache.httpcomponents', name: 'httpmime', version: '4.5.2'
-    
-	compile 'com.google.guava:guava:18.0'
       
 }
 

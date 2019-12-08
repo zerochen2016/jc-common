@@ -1,9 +1,11 @@
-Fundamental module for SpringBoot project
+# jc-common
+## Introduction
+A basic module containing some utility classes
 
-The mainly are tool classes
+## How to get
+### Step 1
 
-How to get
-Step 1. Add the JitPack repository to your build file
+Add the JitPack repository to your build file
 
 	allprojects {
 		repositories {
@@ -12,7 +14,9 @@ Step 1. Add the JitPack repository to your build file
 		}
 	}
   
-Step 2. Add the dependency
+### Step 2
+
+Add the dependency
 
 	dependencies {
 	        implementation 'com.github.zerochen2016:jc-common:{VERSION}'

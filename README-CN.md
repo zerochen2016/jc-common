@@ -1,4 +1,5 @@
 # jc-common
+[README-EN.md](./README.md)
 ## 简介
 一个包含一些工具类的基础模块
 

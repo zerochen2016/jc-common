@@ -1,4 +1,5 @@
 # jc-common
+[README-CN.md](./README-CN.md)
 ## Introduction
 A basic module containing some utility classes
 

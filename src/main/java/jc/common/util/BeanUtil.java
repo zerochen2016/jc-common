@@ -44,10 +44,5 @@ public class BeanUtil {
 		}
 		return null;
 	}
-
-	public static void main(String args[]) {
-		String result = HttpClientUtil.doGet("rtmp://pull.0631mm.cn/live/24927_1565630342");
-		System.out.println(result);
-	}
 	
 }

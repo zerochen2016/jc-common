@@ -23,21 +23,21 @@ public class DateUtil {
 	 *
 	 */
 	public interface TIMESTAMP {
-		public static final long SECONDS_MINUTE = 60;
-		public static final long SECONDS_HOUR = 3600;
-		public static final long SECONDS_DAY = 86400;
-		public static final int SECONDS_DAY_THIRTY = 25920000;
+		final long SECONDS_MINUTE = 60;
+		final long SECONDS_HOUR = 3600;
+		final long SECONDS_DAY = 86400;
+		final int SECONDS_DAY_THIRTY = 25920000;
 
-		public static final long MILLIS_SECOND = 1000;
-		public static final long MILLIS_MINUTE = 60000;
-		public static final long MILLIS_HOUR = 3600000;
-		public static final long MILLIS_DAY = 86400000;
+		final long MILLIS_SECOND = 1000;
+		final long MILLIS_MINUTE = 60000;
+		final long MILLIS_HOUR = 3600000;
+		final long MILLIS_DAY = 86400000;
 		
-		public static final long MILLIS_SEVEN_DAY = 604800000;//7点的毫秒数
+		final long MILLIS_SEVEN_DAY = 604800000;//7点的毫秒数
 		
-		public static final long MILLIS_TEN_YEAR = 315360000000l;//十年毫秒数
+		final long MILLIS_TEN_YEAR = 315360000000l;//十年毫秒数
 
-		public static final long MILLIS_SECOND_EIGHT_TIMEZONE = 691200000;//8个时区毫秒数
+		final long MILLIS_SECOND_EIGHT_TIMEZONE = 691200000;//8个时区毫秒数
 	}
 
 	/**
@@ -46,23 +46,23 @@ public class DateUtil {
 	 *
 	 */
 	public interface TIMEFORMAT {
-		public static final String HH_MM = "HH:mm";
-		public static final String HH_MM_SS = "HH:mm:ss";
-		public static final String YYYY_MM_DD = "yyyy-MM-dd";
-		public static final String YYYY_MM_DD_HH_MM = "yyyy-MM-dd HH:mm";
-		public static final String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";
+		final String HH_MM = "HH:mm";
+		final String HH_MM_SS = "HH:mm:ss";
+		final String YYYY_MM_DD = "yyyy-MM-dd";
+		final String YYYY_MM_DD_HH_MM = "yyyy-MM-dd HH:mm";
+		final String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";
 
-		public static final String YYYY_MM = "yyyyMM";
-		public static final String MMdd = "MM/dd"; 
-		public static final String YYYY_SALASH_MM_SLASH_DD_HH_MM_SS = "yyyy/MM/dd HH:mm:ss";
-		public static final String YYYYMMDDHH_MM_SS = "yyyyMMdd HH:mm:ss";
-		public static final String YYYYMMDD = "yyyyMMdd";
-		public static final String YYYYMMDDHHMMSS = "yyyyMMddHHmmss";
+		final String YYYY_MM = "yyyyMM";
+		final String MMdd = "MM/dd"; 
+		final String YYYY_SALASH_MM_SLASH_DD_HH_MM_SS = "yyyy/MM/dd HH:mm:ss";
+		final String YYYYMMDDHH_MM_SS = "yyyyMMdd HH:mm:ss";
+		final String YYYYMMDD = "yyyyMMdd";
+		final String YYYYMMDDHHMMSS = "yyyyMMddHHmmss";
 		
-		public static final String YYYY_MM_DD_HH_MM_SS_ZERO = "yyyy-MM-dd 00:00:00";
-		public static final String YYYY_MM_DD_HH_DD_SS_LASE_SECOND = "yyyy-MM-dd 23:59:59";
+		final String YYYY_MM_DD_HH_MM_SS_ZERO = "yyyy-MM-dd 00:00:00";
+		final String YYYY_MM_DD_HH_DD_SS_LASE_SECOND = "yyyy-MM-dd 23:59:59";
 		
-		public static final String M_DD = "M.dd";
+		final String M_DD = "M.dd";
 	}
 	
 	/**

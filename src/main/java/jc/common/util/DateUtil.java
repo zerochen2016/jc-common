@@ -507,4 +507,9 @@ public class DateUtil {
 		c.add(Calendar.MILLISECOND, amount);
 		return c.getTime();
 	}
+	
+	public static void main(String args[]) {
+		System.out.println(DateUtil.getZeroTimeOfYesterDayInt());
+		System.out.println(DateUtil.getZeroTimeOfTodayInt());
+	}
 }

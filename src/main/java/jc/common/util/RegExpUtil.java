@@ -14,4 +14,9 @@ public class RegExpUtil {
     public static boolean isMobile(String content) {
     	return Pattern.matches("1[3|4|5|6|7|8|9]\\d{9}", content);	
     }
+    
+    public static boolean isNumber(String str) {
+    	return Pattern.matches("[0-9]*", str);
+    }
+    
 }

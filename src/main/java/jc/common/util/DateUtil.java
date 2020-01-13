@@ -431,7 +431,7 @@ public class DateUtil {
 		return cld.getTime();
 	}
 	
-	public static Date getSunday() {
+	public static Date getSundayDate() {
 		Calendar cld = Calendar.getInstance(Locale.CHINA);
 		cld.setFirstDayOfWeek(Calendar.MONDAY);//以周一为首日
 		cld.setTimeInMillis(System.currentTimeMillis());//当前时间
@@ -439,7 +439,7 @@ public class DateUtil {
  		return cld.getTime();
 	}
 	
-	public static Date getNextSunday() {
+	public static Date getNextSundayDate() {
 		Calendar cld = Calendar.getInstance(Locale.CHINA);
 		cld.setFirstDayOfWeek(Calendar.MONDAY);//以周一为首日
 		cld.setTimeInMillis(System.currentTimeMillis());//当前时间
@@ -448,10 +448,84 @@ public class DateUtil {
  		return cld.getTime();
 	}
 	
-	public static Date getNextMonday() {
+	public static Date getNextMondayDate() {
 		Calendar cld = Calendar.getInstance(Locale.CHINA);
 		cld.setFirstDayOfWeek(Calendar.MONDAY);//以周一为首日
 		cld.setTimeInMillis(System.currentTimeMillis());//当前时间
+ 		cld.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);//周一
+ 		cld.add(Calendar.DATE, 7);
+ 		return cld.getTime();
+	}
+	
+	public static String getZeroOfMonday(String timeformat) {
+		SimpleDateFormat df = new SimpleDateFormat(timeformat);//设置日期格式
+		Calendar cld = Calendar.getInstance(Locale.CHINA);
+		cld.setFirstDayOfWeek(Calendar.MONDAY);//以周一为首日
+		cld.setTimeInMillis(getZeroTimeOfToday().getTime());//当前时间
+
+ 		cld.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);//周一
+		return df.format(cld.getTime());
+	}
+	
+	public static String getZeroOfSunday(String timeformat) {
+		SimpleDateFormat df = new SimpleDateFormat(timeformat);//设置日期格式
+		Calendar cld = Calendar.getInstance(Locale.CHINA);
+		cld.setFirstDayOfWeek(Calendar.MONDAY);//以周一为首日
+		cld.setTimeInMillis(getZeroTimeOfToday().getTime());//当前时间
+ 		cld.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);//周日
+		return df.format(cld.getTime());
+	}
+	
+	public static String getZeroOfNextSunday(String timeformat) {
+		SimpleDateFormat df = new SimpleDateFormat(timeformat);//设置日期格式
+		Calendar cld = Calendar.getInstance(Locale.CHINA);
+		cld.setFirstDayOfWeek(Calendar.MONDAY);//以周一为首日
+		cld.setTimeInMillis(getZeroTimeOfToday().getTime());//当前时间
+ 		cld.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);//周日
+ 		cld.add(Calendar.DATE, 7);
+		return df.format(cld.getTime());
+	}
+	
+	public static String getZeroOfNextMonday(String timeformat) {
+		SimpleDateFormat df = new SimpleDateFormat(timeformat);//设置日期格式
+		Calendar cld = Calendar.getInstance(Locale.CHINA);
+		cld.setFirstDayOfWeek(Calendar.MONDAY);//以周一为首日
+		cld.setTimeInMillis(getZeroTimeOfToday().getTime());//当前时间
+ 		cld.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);//周一
+ 		cld.add(Calendar.DATE, 7);
+ 		return df.format(cld.getTime());
+	}
+	
+	public static Date getZeroOfMondayDate() {
+		Calendar cld = Calendar.getInstance(Locale.CHINA);
+		cld.setFirstDayOfWeek(Calendar.MONDAY);//以周一为首日
+		cld.setTimeInMillis(getZeroTimeOfToday().getTime());//当前时间
+
+ 		cld.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);//周一
+		return cld.getTime();
+	}
+	
+	public static Date getZeroOfSundayDate() {
+		Calendar cld = Calendar.getInstance(Locale.CHINA);
+		cld.setFirstDayOfWeek(Calendar.MONDAY);//以周一为首日
+		cld.setTimeInMillis(getZeroTimeOfToday().getTime());//当前时间
+ 		cld.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);//周日
+ 		return cld.getTime();
+	}
+	
+	public static Date getZeroOfNextSundayDate() {
+		Calendar cld = Calendar.getInstance(Locale.CHINA);
+		cld.setFirstDayOfWeek(Calendar.MONDAY);//以周一为首日
+		cld.setTimeInMillis(getZeroTimeOfToday().getTime());//当前时间
+ 		cld.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);//周日
+ 		cld.add(Calendar.DATE, 7);
+ 		return cld.getTime();
+	}
+	
+	public static Date getZeroOfNextMondayDate() {
+		Calendar cld = Calendar.getInstance(Locale.CHINA);
+		cld.setFirstDayOfWeek(Calendar.MONDAY);//以周一为首日
+		cld.setTimeInMillis(getZeroTimeOfToday().getTime());//当前时间
  		cld.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);//周一
  		cld.add(Calendar.DATE, 7);
  		return cld.getTime();

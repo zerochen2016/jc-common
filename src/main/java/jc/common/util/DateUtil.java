@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 import java.util.TimeZone;
 
 
@@ -63,6 +64,8 @@ public class DateUtil {
 		final String YYYY_MM_DD_HH_DD_SS_LASE_SECOND = "yyyy-MM-dd 23:59:59";
 		
 		final String M_DD = "M.dd";
+		
+		final String D = "d";
 	}
 	
 	/**
@@ -379,6 +382,80 @@ public class DateUtil {
 		}
 		return week_index;
 	}
+	
+	public static String getMonday(String timeformat) {
+		SimpleDateFormat df = new SimpleDateFormat(timeformat);//设置日期格式
+		Calendar cld = Calendar.getInstance(Locale.CHINA);
+		cld.setFirstDayOfWeek(Calendar.MONDAY);//以周一为首日
+		cld.setTimeInMillis(System.currentTimeMillis());//当前时间
+
+ 		cld.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);//周一
+		return df.format(cld.getTime());
+	}
+	
+	public static String getSunday(String timeformat) {
+		SimpleDateFormat df = new SimpleDateFormat(timeformat);//设置日期格式
+		Calendar cld = Calendar.getInstance(Locale.CHINA);
+		cld.setFirstDayOfWeek(Calendar.MONDAY);//以周一为首日
+		cld.setTimeInMillis(System.currentTimeMillis());//当前时间
+ 		cld.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);//周日
+		return df.format(cld.getTime());
+	}
+	
+	public static String getNextSunday(String timeformat) {
+		SimpleDateFormat df = new SimpleDateFormat(timeformat);//设置日期格式
+		Calendar cld = Calendar.getInstance(Locale.CHINA);
+		cld.setFirstDayOfWeek(Calendar.MONDAY);//以周一为首日
+		cld.setTimeInMillis(System.currentTimeMillis());//当前时间
+ 		cld.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);//周日
+ 		cld.add(Calendar.DATE, 7);
+		return df.format(cld.getTime());
+	}
+	
+	public static String getNextMonday(String timeformat) {
+		SimpleDateFormat df = new SimpleDateFormat(timeformat);//设置日期格式
+		Calendar cld = Calendar.getInstance(Locale.CHINA);
+		cld.setFirstDayOfWeek(Calendar.MONDAY);//以周一为首日
+		cld.setTimeInMillis(System.currentTimeMillis());//当前时间
+ 		cld.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);//周一
+ 		cld.add(Calendar.DATE, 7);
+ 		return df.format(cld.getTime());
+	}
+	
+	public static Date getMondayDate() {
+		Calendar cld = Calendar.getInstance(Locale.CHINA);
+		cld.setFirstDayOfWeek(Calendar.MONDAY);//以周一为首日
+		cld.setTimeInMillis(System.currentTimeMillis());//当前时间
+
+ 		cld.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);//周一
+		return cld.getTime();
+	}
+	
+	public static Date getSunday() {
+		Calendar cld = Calendar.getInstance(Locale.CHINA);
+		cld.setFirstDayOfWeek(Calendar.MONDAY);//以周一为首日
+		cld.setTimeInMillis(System.currentTimeMillis());//当前时间
+ 		cld.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);//周日
+ 		return cld.getTime();
+	}
+	
+	public static Date getNextSunday() {
+		Calendar cld = Calendar.getInstance(Locale.CHINA);
+		cld.setFirstDayOfWeek(Calendar.MONDAY);//以周一为首日
+		cld.setTimeInMillis(System.currentTimeMillis());//当前时间
+ 		cld.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);//周日
+ 		cld.add(Calendar.DATE, 7);
+ 		return cld.getTime();
+	}
+	
+	public static Date getNextMonday() {
+		Calendar cld = Calendar.getInstance(Locale.CHINA);
+		cld.setFirstDayOfWeek(Calendar.MONDAY);//以周一为首日
+		cld.setTimeInMillis(System.currentTimeMillis());//当前时间
+ 		cld.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);//周一
+ 		cld.add(Calendar.DATE, 7);
+ 		return cld.getTime();
+	}
 	/**
 	 * 获取日期所在月第一天，按格式输出
 	 * @param date
@@ -507,9 +584,5 @@ public class DateUtil {
 		c.add(Calendar.MILLISECOND, amount);
 		return c.getTime();
 	}
-	
-	public static void main(String args[]) {
-		System.out.println(DateUtil.getZeroTimeOfYesterDayInt());
-		System.out.println(DateUtil.getZeroTimeOfTodayInt());
-	}
+
 }

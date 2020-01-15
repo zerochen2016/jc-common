@@ -123,9 +123,9 @@ public class RandomUtil {
          return prefix+sb.toString(); 
 	}
 	/**
-	 * 随机去范围内的值
-	 * @param min
-	 * @param max
+	 * 随机取范围内的值
+	 * @param min 包含
+	 * @param max 不包含
 	 * @return
 	 */
 	public static int getRandomRank(int min,int max) {
@@ -139,6 +139,7 @@ public class RandomUtil {
 	 * @param numEnd 最大值
 	 * @return
 	 */
+	@Deprecated
 	public static int getRandomNumberRank(int numStart,int numEnd) {
 		return numStart+(int)(Math.random()*numEnd);
 	}
@@ -150,4 +151,5 @@ public class RandomUtil {
 		}
 		return sb.subSequence(0, sb.length() - 1);
 	}
+	
 }

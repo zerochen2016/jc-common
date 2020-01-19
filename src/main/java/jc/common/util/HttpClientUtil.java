@@ -58,7 +58,7 @@ public class HttpClientUtil {
 		//3、构造请求参数
 		List<NameValuePair> list = new ArrayList<NameValuePair>();
 		for(Map.Entry<String, Object> param:params.entrySet()) {
-			list.add(new BasicNameValuePair(param.getKey(), String.valueOf(param.getValue())));
+			list.add(new BasicNameValuePair(param.getKey(), GsonExtension.GsonString(param.getValue())));
 		}
 		if(list.size()>0) {
 			try {
@@ -86,7 +86,7 @@ public class HttpClientUtil {
 		//3、构造请求参数
 		List<NameValuePair> list = new ArrayList<NameValuePair>();
 		for(Map.Entry<String, String> param:params.entrySet()) {
-			list.add(new BasicNameValuePair(param.getKey(), String.valueOf(param.getValue())));
+			list.add(new BasicNameValuePair(param.getKey(), GsonExtension.GsonString(param.getValue())));
 		}
 		if(list.size()>0) {
 			try {
@@ -112,7 +112,7 @@ public class HttpClientUtil {
 		//3、构造请求参数
 		List<NameValuePair> list = new ArrayList<NameValuePair>();
 		for(Map.Entry<String, Object> param:params.entrySet()) {
-			list.add(new BasicNameValuePair(param.getKey(), String.valueOf(param.getValue())));
+			list.add(new BasicNameValuePair(param.getKey(), GsonExtension.GsonString(param.getValue())));
 		}
 		if(list.size()>0) {
 			try {
@@ -149,7 +149,7 @@ public class HttpClientUtil {
 				sb.append(param.getKey());
 				sb.append("=");
 				try {
-					sb.append(URLEncoder.encode(String.valueOf(param.getValue()),"UTF-8"));
+					sb.append(URLEncoder.encode(GsonExtension.GsonString(param.getValue()),"UTF-8"));
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
 				}
@@ -176,7 +176,7 @@ public class HttpClientUtil {
 				sb.append(param.getKey());
 				sb.append("=");
 				try {
-					sb.append(URLEncoder.encode(String.valueOf(param.getValue()),charset));
+					sb.append(URLEncoder.encode(GsonExtension.GsonString(param.getValue()),charset));
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
 				}
@@ -196,7 +196,7 @@ public class HttpClientUtil {
 				sb.append(param.getKey());
 				sb.append("=");
 				try {
-					sb.append(URLEncoder.encode(String.valueOf(param.getValue()),charset));
+					sb.append(URLEncoder.encode(GsonExtension.GsonString(param.getValue()),charset));
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
 				}

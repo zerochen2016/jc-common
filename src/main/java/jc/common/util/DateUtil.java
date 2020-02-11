@@ -659,4 +659,15 @@ public class DateUtil {
 		return c.getTime();
 	}
 
+	/**
+	 * 长度（秒）转成 00:00:00
+	 * @param length
+	 * @return
+	 */
+	public static String timeSecondToString(int length) {
+		int hour = length / 3600 ;
+		int minutes = length / 60 % 60;
+		int seconds = length  % 3600 % 60;
+		return hour + ":" + minutes + ":" + seconds;
+	}
 }

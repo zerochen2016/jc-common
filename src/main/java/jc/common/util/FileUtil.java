@@ -2,6 +2,8 @@ package jc.common.util;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -10,6 +12,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
@@ -263,6 +266,29 @@ public class FileUtil {
 				result.add(path);
 			}
 		}
+	}
+	
+	/**
+	 * 下载url文件
+	 * @param url
+	 * @param path
+	 */
+	public static void downloadPicture(String url, String path) {
+		try {
+			DataInputStream dataInputStream = new DataInputStream(new URL(url).openStream());
+			FileOutputStream fileOutputStream = new FileOutputStream(new File(path));
+			ByteArrayOutputStream output = new ByteArrayOutputStream();
+			byte[] buffer = new byte[1024];
+			int length;
+			while ((length = dataInputStream.read(buffer)) > 0) {
+				output.write(buffer, 0, length);
+			}
+			fileOutputStream.write(output.toByteArray());
+			dataInputStream.close();
+			fileOutputStream.close();
+		} catch (Exception e) {
+				e.printStackTrace();
+		} 
 	}
 
 }

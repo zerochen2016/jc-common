@@ -29,10 +29,6 @@ public class DomainUtil {
 		int countAppear = StringUtil.countOccuranceOfChar(url, '.');
 		return url.substring(StringUtil.indexOfChar(url, '.', countAppear - 1) + 1, url.length()).replace("/", "");
 	}
-	
-	public static void main(String[] args) {
-		System.out.println(getTopDomainName("http://nn06.top/"));
-	}
 
 	public static String getHost(HttpServletRequest request) {
 		String domainName = getDomainName(request);

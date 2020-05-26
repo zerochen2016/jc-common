@@ -3,6 +3,7 @@ package jc.common.util;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -20,6 +22,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.ContentType;
@@ -209,6 +212,73 @@ public class HttpClientUtil {
 		String result = doExecute(new HttpGet(url));
 		return result;
 	}
+	
+    /**
+     * get请求
+     * @param url 请求地址（get请求时参数自己组装到url上）
+     * @param headerMap 请求头
+     * @return 响应文本
+     */
+    public static String doGet(String url, Map<String, String> headers, Map<String,String> params) {
+        // 请求地址，以及参数设置
+        HttpGet get = new HttpGet(url);
+        if (headers != null) {
+            for (Entry<String, String> entry : headers.entrySet()) {
+                get.setHeader(entry.getKey(), entry.getValue());
+            }
+        }
+		StringBuffer urlsb = new StringBuffer();
+		if(params!=null && !params.isEmpty()) {
+			for(Map.Entry<String, String> param:params.entrySet()) {
+				urlsb.append(param.getKey());
+				urlsb.append("=");
+				try {
+					urlsb.append(URLEncoder.encode(String.valueOf(param.getValue()),"UTF-8"));
+				} catch (UnsupportedEncodingException e) {
+					e.printStackTrace();
+				}
+				urlsb.append("&");
+			}
+		}
+		if(urlsb!=null&&urlsb.length()>0) {
+			url += "?"+urlsb.substring(0,urlsb.length()-1);
+		}
+        // 获取响应对象
+        HttpResponse response = null;
+        try {
+            response = HttpClients.createDefault().execute(get);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (response == null) {
+            return null;
+        }
+        // 获取Entity对象
+        HttpEntity entity = response.getEntity();
+        // 获取响应信息流
+        InputStream in = null;
+        if (entity != null) {
+            try {
+                in =  entity.getContent();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+ 
+        StringBuilder sb = new StringBuilder();
+        String line;
+ 
+        BufferedReader br = new BufferedReader(new InputStreamReader(in));
+        try {
+            while ((line = br.readLine()) != null) {
+                sb.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String str = sb.toString();
+        return str;
+    }
 	/**
 	/**
 	 * @Remark 执行请求

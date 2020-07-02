@@ -24,10 +24,18 @@ public class UAUtil {
 	
 	public static boolean isIOS(HttpServletRequest request) {
 		String userAgent = getUA(request).toLowerCase();
-		return (userAgent.indexOf("iphone") != -1 || userAgent.indexOf("ipad") != -1 || userAgent.indexOf("ipod") != -1) ? true : false;
+		return (userAgent.indexOf("iphone") != -1 || userAgent.indexOf("ipad") != -1 
+				|| userAgent.indexOf("ipod") != -1) ? true : false;
 	}
 	
 	public static boolean isAndroid(HttpServletRequest request) {
 		return getUA(request).toLowerCase().indexOf("android") != -1 ? true : false;
 	}
+	
+	public static boolean isMobile(HttpServletRequest request) {
+		String userAgent = getUA(request).toLowerCase();
+		return (userAgent.indexOf("iphone") != -1 || userAgent.indexOf("ipad") != -1 
+				|| userAgent.indexOf("ipod") != -1 || userAgent.indexOf("android") != -1) ? true : false;
+	}
+		
 }

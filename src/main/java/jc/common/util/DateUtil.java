@@ -530,14 +530,58 @@ public class DateUtil {
  		cld.add(Calendar.DATE, 7);
  		return cld.getTime();
 	}
+	
+	/**
+     * 获取本周的第一天
+     * @return String
+     * **/
+    public static String getFirstDayInWeek(){
+        Calendar cal=Calendar.getInstance();
+        cal.add(Calendar.WEEK_OF_MONTH, 0);
+        cal.set(Calendar.DAY_OF_WEEK, 2);
+        Date time=cal.getTime();
+        return new SimpleDateFormat("yyyy-MM-dd").format(time)+" 00:00:00";
+    }
+    
+    /**
+     * 获取本周的最后一天
+     * @return String
+     * **/
+    public static String getLastDayInWeek(){
+        Calendar cal=Calendar.getInstance();
+        cal.set(Calendar.DAY_OF_WEEK, cal.getActualMaximum(Calendar.DAY_OF_WEEK));
+        cal.add(Calendar.DAY_OF_WEEK, 1);
+        Date time=cal.getTime();
+        return new SimpleDateFormat("yyyy-MM-dd").format(time)+" 23:59:59";
+    }
 	/**
 	 * 获取日期所在月第一天，按格式输出
 	 * @param date
 	 * @param timeFormat
 	 * @return
 	 */
-	public static String getFirstDayInMonth(Date date,String timeFormat) {
-		SimpleDateFormat df = new SimpleDateFormat(timeFormat);
+	public static String getFirstDayInMonth() {
+		SimpleDateFormat df = new SimpleDateFormat(TIMEFORMAT.YYYY_MM_DD);
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(getSystemTimeDate());
+		Date theDate = calendar.getTime();
+
+		GregorianCalendar gcLast = (GregorianCalendar) Calendar.getInstance();
+		gcLast.setTime(theDate);
+		gcLast.set(Calendar.DAY_OF_MONTH, 1);
+		String day_first = df.format(gcLast.getTime());
+		StringBuffer str = new StringBuffer().append(day_first).append(" 00:00:00");
+		return str.toString();
+
+	}    
+	/**
+	 * 获取日期所在月第一天，按格式输出
+	 * @param date
+	 * @param timeFormat
+	 * @return
+	 */
+	public static String getFirstDayInMonth(Date date) {
+		SimpleDateFormat df = new SimpleDateFormat(TIMEFORMAT.YYYY_MM_DD);
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
 		Date theDate = calendar.getTime();
@@ -556,8 +600,24 @@ public class DateUtil {
 	 * @param timeFormat
 	 * @return
 	 */
-	public static String getLastDayInMonth(Date date,String timeFormat) {
-		SimpleDateFormat df = new SimpleDateFormat(timeFormat);
+	public static String getLastDayInMonth() {
+		SimpleDateFormat df = new SimpleDateFormat(TIMEFORMAT.YYYY_MM_DD);
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(getSystemTimeDate());
+		calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
+		Date theDate = calendar.getTime();
+		String s = df.format(theDate);
+		StringBuffer str = new StringBuffer().append(s).append(" 23:59:59");
+		return str.toString();
+	}
+	/**
+	 * 获取日期所在月最后一天，按格式输出
+	 * @param date
+	 * @param timeFormat
+	 * @return
+	 */
+	public static String getLastDayInMonth(Date date) {
+		SimpleDateFormat df = new SimpleDateFormat(TIMEFORMAT.YYYY_MM_DD);
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
 		calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
@@ -565,7 +625,6 @@ public class DateUtil {
 		String s = df.format(theDate);
 		StringBuffer str = new StringBuffer().append(s).append(" 23:59:59");
 		return str.toString();
-
 	}
 	/**
 	 * 增加n天
@@ -670,4 +729,5 @@ public class DateUtil {
 		int seconds = length  % 3600 % 60;
 		return hour + ":" + minutes + ":" + seconds;
 	}
+
 }

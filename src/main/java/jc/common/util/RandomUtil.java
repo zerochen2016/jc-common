@@ -133,17 +133,6 @@ public class RandomUtil {
 		return new Random().nextInt(j) + min;
 	}
 	
-	/**
-	 * 生成范围内的随机数
-	 * @param numStart 最小值
-	 * @param numEnd 最大值
-	 * @return
-	 */
-	@Deprecated
-	public static int getRandomNumberRank(int numStart,int numEnd) {
-		return numStart+(int)(Math.random()*numEnd);
-	}
-	
 	public static Object getRandomWordChars(int wordNumber, int length) {
 		StringBuffer sb = new StringBuffer();
 		for(int i = 0; i< wordNumber; i ++) {

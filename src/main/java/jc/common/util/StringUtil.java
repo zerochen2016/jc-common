@@ -15,13 +15,22 @@ public class StringUtil{
 		return (str == null || "".equals(str));
 	}
 	
+	public static boolean notEmpty(String str) {
+		return !isEmpty(str);
+	}
+	
 	public static boolean anyEmpty(String ...args) {
 		for(String arg : args) {
-			if(isEmpty(arg)) {
-				return true;
-			}
+			if(isEmpty(arg)) return true;
 		}
 		return false;
+	}
+	
+	public static boolean allEmpty(String ...args) {
+		for(String arg : args) {
+			if(!isEmpty(arg)) return false; 
+		}
+		return true;
 	}
 	
 	/**

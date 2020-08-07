@@ -26,10 +26,32 @@ public class StringUtil{
 		return false;
 	}
 	
+	public static boolean anyEmpty(Number num, String ...args) {
+		
+		if(num == null) return true;
+		
+		for(String arg : args) {
+			if(isEmpty(arg)) return true;
+		}
+		return false;
+	}
+	
+	
 	public static boolean allEmpty(String ...args) {
 		for(String arg : args) {
 			if(!isEmpty(arg)) return false; 
 		}
+		return true;
+	}
+	
+	public static boolean allEmpty(Number num,String ...args) {
+		
+		if(num != null) return false;
+		
+		for(String arg : args) {
+			if(!isEmpty(arg)) return false; 
+		}
+		
 		return true;
 	}
 	

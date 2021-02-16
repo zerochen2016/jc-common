@@ -350,9 +350,8 @@ public class HttpClientUtil {
 		}
 		return "";
 	}
+
 	public static void main(String args[]) {
-		String url = "http://zb.xcmzb.xyz/Appapi/Pay/aliAutoNotify?gmt_create=2020-01-23 12:21:11&charset=UTF-8&seller_email=$$$&subject=充值&sign=$$$&body=直播-50&buyer_id=2088802391595912&invoice_amount=38.00&notify_id=2020012300222122112095911424252108&fund_bill_list=[{\\\"amount\\\":\\\"38.00\\\",\\\"fundChannel\\\":\\\"ALIPAYACCOUNT\\\"}]&notify_type=trade_status_sync&trade_status=TRADE_SUCCESS&receipt_amount=38.00&app_id=2019071365811491&buyer_pay_amount=38.00&sign_type=RSA2&seller_id=2088031841613494&gmt_payment=2020-01-23 12:21:12&notify_time=2020-01-23 12:21:13&version=1.0&out_trade_no=55585_20200123122106570&total_amount=38.00&trade_no=2020012322001495911414153074&auth_app_id=2019071365811491&buyer_logon_id=470***@qq.com&point_amount=0.00";
-		System.out.println(url.charAt(65));
-//		System.out.println(HttpClientUtil.doGet(url, new HashMap<String,Object>()));
+		System.out.println(FileUtil.getFileContent(new File("/Users/zero/Desktop/mywork/nutyun/我的坚果云/pro/app-jt.pem"), "utf-8"));;
 	}
 }

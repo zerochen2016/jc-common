@@ -1,15 +1,14 @@
 package jc.common.util;
 
-import java.io.File;
-import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+
 
 /**
  * util of signature
@@ -100,5 +99,24 @@ public class SignatureUtil {
 			throw new RuntimeException(e);
 		}
 	}
+	
+//	public static void main(String args[]) throws NoSuchAlgorithmException {
+//		byte[] a = new byte[] {1,2,3,4,5}; 
+////		System.out.println(SignatureUtil.ad());
+//		
+//		System.out.println(SignatureUtil.encodeMD5(b));
+//	}
+	
+//	public static String ad() throws NoSuchAlgorithmException{
+		
+//		MessageDigest md = MessageDigest.getInstance("MD5");
+//		byte[] p = md.digest(new byte[] {1,1,1,1,1});
+//		System.out.println(GsonExtension.GsonString(p));
+//		System.out.println(new BigInteger(1,p));
+//		return new BigInteger(1,p).toString(16);
+//		668d2e5e768e32405c729db17e8158a8
+//	    return BigInteger(1, md.digest(this)).toString(16).padStart(32, '0');
+		
+//	}
 
 }
